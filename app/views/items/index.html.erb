@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+ <div id="itemsContainer">
+  
+  <h1>Items</h1>
+  
+    <div class="mainCont">
+    <%=render 'layouts/categories'%>
+    </div>
+
+      <% @items.each do |item| %>
+      <div class="itemhols">
+       <h1><%= item.title %></h1>
+       
+       <%= link_to (image_tag item.image_url, :class => "itemholsIm"), item %>
+        <p><%= item.description %></p>
+       <p>Price <%= number_to_currency(item.price, :unit => "€") %>
+       <br>
+        Category: <%= item.category %>
+        <br>
+        Brand: <%= item.brand %></p>
+       
+       <p>
+         <%= link_to 'Show',  item, :class => "w3-button w3-black w3-section", :role => "button" %>
+         
+         <% if user_signed_in? %>
+          <% if current_user.admin %>
+            <%= link_to 'Edit',  edit_item_path(item), :class => "w3-button w3-black w3-section", :role => "button" %>
+            <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "w3-button w3-black w3-section", :role => "button" %>
+          <% end %> 
+         <% end %>
+         
+         
+         
+         <a href="/cart/<%= item.id %>" class="w3-button w3-black w3-section">Add To Cart</a>
+       </p>
+        
+      </div>
+    <% end %>
+      
+</div>
+
+
+
+<br>
+<% if user_signed_in? %>  
+<%= link_to 'New Item', new_item_path, :class =>"w3-button w3-black w3-section", :role=>"button" %>
+<%= link_to 'New Category', new_category_path, :class =>"w3-button w3-black w3-section", :role=>"button"  %>
+<% end %>
+
