@@ -15,7 +15,7 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
  
-    <title>PrintShop!!</title>
+    <title>PrintShop</title>
     <%= csrf_meta_tags %>
 
     
@@ -41,13 +41,11 @@
       <%= link_to "HOME", "/", :class => "w3-bar-item w3-button" %>
       <%= link_to "PRODUCTS", "/items", :class => "w3-bar-item w3-button" %>
       <%= link_to "ABOUT", about_path, :class => "w3-bar-item w3-button" %>
-      <%= link_to "HELP",help_path, :class => "w3-bar-item w3-button" %>
       <%= link_to "ALL USERS", "/allusers", :class => "w3-bar-item w3-button" %>
       <%= link_to "VIEW ORDERS", orders_path, :class => "w3-bar-item w3-button"  %>
       
         <% if user_signed_in? %>
-          <a href="#", class ="w3-bar-item w3-button">WELCOME :)</a>
-                 
+  
                   <%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete,:class =>"w3-bar-item w3-button" %>
                   <%= link_to 'EDIT PROFILE', edit_user_registration_path ,:class =>"w3-bar-item w3-button" %></li>
                   

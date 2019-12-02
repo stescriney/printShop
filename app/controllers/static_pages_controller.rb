@@ -1,6 +1,7 @@
  class StaticPagesController < ApplicationController
   def home
    # current_user.update_attribute :admin, true
+   @items = Item.all
   end
   
   def category
