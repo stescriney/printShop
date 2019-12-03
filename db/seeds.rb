@@ -8,11 +8,13 @@
 
 
 # Taken from: https://stackoverflow.com/questions/12418584/seeding-users-with-devise-in-ruby-on-rails
-user = User.create!  :email => 'stephenscriney@gmail.com', :admin=true , :password => 'ste123', :password_confirmation => 'ste123'
-user_1 = User.create!  :email => 'customer@google.com', :admin=false , :password => 'password', :password_confirmation => 'password'
+user = User.create!  :email => 'stescriney@gmail.com', :password => 'ste123', :password_confirmation => 'ste123'
+user.toggle!(:admin)
+user_1 = User.create!  :email => 'custom@google.com', :password => 'password', :password_confirmation => 'password'
 
 
-item = Item.create! :title=> , :description=> , :price=>, :image_url=>, :category=>, :brand=>
-item_1 = Item.create! :title=> , :description=> , :price=>, :image_url=>, :category=>, :brand=>
-item_2 = Item.create! :title=> , :description=> , :price=>, :image_url=>, :category=>, :brand=>
+item = Item.create! :title =>"Mona Lisa" , :description =>"Mona Lisa by Da Vinci" , :price =>10.0, :image_url =>"", :category =>"Classical", :brand =>"Print Shop"
+item_1 = Item.create! :title=>"" , :description=>"" , :price=>20.0, :image_url=>"", :category=>"", :brand=>""
+item_2 = Item.create! :title=>"" , :description=>"" , :price=>15.0, :image_url=>"", :category=>"", :brand=>""
+
 

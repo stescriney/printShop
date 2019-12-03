@@ -43,8 +43,10 @@
 
 
 <br>
-<% if user_signed_in? %>  
-<%= link_to 'New Item', new_item_path, :class =>"w3-button w3-black w3-section", :role=>"button" %>
-<%= link_to 'New Category', new_category_path, :class =>"w3-button w3-black w3-section", :role=>"button"  %>
+<% if user_signed_in? %>
+  <% if current_user.admin %>  
+   <%= link_to 'New Item', new_item_path, :class =>"w3-button w3-black w3-section", :role=>"button" %>
+   <%= link_to 'New Category', new_category_path, :class =>"w3-button w3-black w3-section", :role=>"button"  %>
+ <% end %>
 <% end %>
 

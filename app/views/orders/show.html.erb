@@ -37,7 +37,9 @@
 
    </table>
         <tr>
+    <% if current_user.admin %>
     <td><%= link_to 'Edit', edit_order_path(@order), :class =>"button" %></td>
+    <% end %>
     <td><%= link_to 'Back', orders_path, :class =>"button" %></td>
         
   </tr>
